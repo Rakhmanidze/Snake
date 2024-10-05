@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.29)
+project(semak_cpp)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(semak_cpp src/main.cpp
+        src/menu.cpp
+        include/menu.h
+        include/instructions.h
+        src/instructions.cpp
+)
