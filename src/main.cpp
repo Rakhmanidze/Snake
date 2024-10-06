@@ -1,8 +1,7 @@
-#include "../include/menu.h"
+#include "../include/snakegame.h"
 
-int main()
-{
-    Menu menu;
-    menu.display();
+int main() {
+    SnakeGame snake;
+    snake.run();
     return 0;
 }
