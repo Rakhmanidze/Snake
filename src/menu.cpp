@@ -30,10 +30,10 @@ void Menu::displayMenu() {
         std::cout << "1. Start Game\n";
         std::cout << "2. Instructions\n";
         std::cout << "3. Exit\n";
-        choice = getValidatedInput("Choose an option (1-3): ", 1, 3);
+        choice = getValidatedInput("Choose an option (1-3):", 1, 3);
         if (choice == 1) {
             game.setCurrentState(GameState::Playing);
-            std::cout << "Starting the game...\n";
+            // std::cout << "Starting the game...\n";
             break;
         } if (choice == 2) {
             displayInstructions();

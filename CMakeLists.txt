@@ -9,4 +9,7 @@ add_executable(semak_cpp src/main.cpp
         include/snakegame.h
         src/snakegame.cpp
         include/gamestate.h
+        src/playing.cpp
+        include/playing.h
+        include/gamedata.h
 )

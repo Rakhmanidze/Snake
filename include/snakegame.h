@@ -4,6 +4,7 @@
 #include "../include/gamestate.h"
 
 class Menu;
+class Playing;
 
 class SnakeGame {
     public:
@@ -11,8 +12,10 @@ class SnakeGame {
         void setCurrentState(GameState state);
     private:
         Menu* menu;
+        Playing* playing;
         GameState currentState;
         void updateMenu();
+        void updatePlaying();
 };
 
 #endif
