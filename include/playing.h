@@ -9,11 +9,12 @@ class Playing {
     public:
         Playing(SnakeGame& game);
         void display();
+        void update();
     private:
         SnakeGame& game;
-        int mapWitdth = GameData::Map::WIDTH;
-        int mapHeight = GameData::Map::HEIGHT;
-        int map[GameData::Map::HEIGHT][GameData::Map::WIDTH];
+        int mapWitdth = GameData::MapDimensions::WIDTH;
+        int mapHeight = GameData::MapDimensions::HEIGHT;
+        int map[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH];
         void initializeMap();
     };
 

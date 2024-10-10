@@ -2,6 +2,7 @@
 #include "../include/menu.h"
 #include "../include/playing.h"
 #include "../include/render.h"
+#include "../include/update.h"
 
 GameState gameState = GameState::Menu;
 
@@ -9,15 +10,13 @@ void SnakeGame::run() {
     menu = new Menu(*this);
     playing = new Playing(*this);
     render = new Render(*this);
+    update = new Update(*this);
     render->render();
+    update->update();
     delete menu;
     delete playing;
-}
-
-void SnakeGame::updateMenu() {
-}
-
-void SnakeGame::updatePlaying() {
+    delete render;
+    delete update;
 }
 
 void SnakeGame::setCurrentState(GameState state) {

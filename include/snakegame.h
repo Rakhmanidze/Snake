@@ -4,10 +4,12 @@
 #include "../include/gamestate.h"
 #include "../include/menu.h"
 #include "../include/playing.h"
+#include "../include/update.h"
 
 class Menu;
 class Playing;
 class Render;
+class Update;
 
 class SnakeGame {
     public:
@@ -20,8 +22,7 @@ class SnakeGame {
         Menu* menu;
         Playing* playing;
         Render* render;
-        void updateMenu();
-        void updatePlaying();
+        Update* update;
 };
 
 #endif

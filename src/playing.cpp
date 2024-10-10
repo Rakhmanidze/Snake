@@ -11,24 +11,26 @@ void Playing::initializeMap() {
     for (int i = 0; i < mapHeight; i++) {
         for (int j = 0; j < mapWitdth; j++) {
             if (j == 0 || j == mapWitdth - 1 || i == 0 || i == mapHeight - 1)
-                map[i][j] = GameData::Map::BORDER;
+                map[i][j] = GameData::MapTileType::WALL;
             else
-                map[i][j] = GameData::Map::EMPTY_SPACE;
+                map[i][j] = GameData::MapTileType::EMPTY_SPACE;
         }
     }
-    map[mapHeight / 2][mapWitdth / 2] = GameData::Map::SNAKE;
+    map[mapHeight / 2][mapWitdth / 2] = GameData::MapTileType::SNAKE;
 }
 
+void Playing::update() {
 
+}
 
 void Playing::display() {
     for (int i = 0; i < mapHeight; i++) {
         for (int j = 0; j < mapWitdth; j++) {
             if (j == 0 || j == mapWitdth - 1 || i == 0 || i == mapHeight - 1)
                 std::cout << "#";
-            else if (map[i][j] == GameData::Map::SNAKE)
+            else if (map[i][j] == GameData::MapTileType::SNAKE)
                 std::cout << "o";
-            else if (map[i][j] == GameData::Map::FOOD)
+            else if (map[i][j] == GameData::MapTileType::FOOD)
                 std::cout << "+";
             else
                 std::cout << " ";

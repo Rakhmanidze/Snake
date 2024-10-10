@@ -15,4 +15,11 @@ add_executable(semak_cpp src/main.cpp
         include/render.h
         src/render.cpp
         src/render.cpp
+        include/update.h
+        src/update.cpp
+        include/snake.h
+        src/snake.cpp
+        include/coordinate.h
+        include/food.h
+        src/food.cpp
 )

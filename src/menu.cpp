@@ -7,22 +7,6 @@
 
 Menu::Menu(SnakeGame &game) : snakeGame(game) {}
 
-int Menu::getValidatedInput(const std::string& text, int min, int max) {
-    std::string input;
-    int choice;
-
-    while (true) {
-        std::cout << text;
-        std::getline(std::cin, input);
-
-        std::stringstream ss(input);
-        if (ss >> choice && ss.eof() && choice >= min && choice <= max)
-            break;
-        std::cout << "Invalid input. Please enter a whole number between " << min << " and " << max << ".\n";
-    }
-    return choice;
-}
-
 void Menu::display() {
     int choice;
     while (true) {
@@ -41,6 +25,22 @@ void Menu::display() {
             break;
         }
     }
+}
+
+int Menu::getValidatedInput(const std::string& text, int min, int max) {
+    std::string input;
+    int choice;
+
+    while (true) {
+        std::cout << text;
+        std::getline(std::cin, input);
+
+        std::stringstream ss(input);
+        if (ss >> choice && ss.eof() && choice >= min && choice <= max)
+            break;
+        std::cout << "Invalid input. Please enter a whole number between " << min << " and " << max << ".\n";
+    }
+    return choice;
 }
 
 void Menu::displayInstructions() const {
