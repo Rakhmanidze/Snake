@@ -5,7 +5,7 @@
 #include <ostream>
 #include <sstream>
 
-Menu::Menu(SnakeGame &game) : game(game) {}
+Menu::Menu(SnakeGame &game) : snakeGame(game) {}
 
 int Menu::getValidatedInput(const std::string& text, int min, int max) {
     std::string input;
@@ -23,7 +23,7 @@ int Menu::getValidatedInput(const std::string& text, int min, int max) {
     return choice;
 }
 
-void Menu::displayMenu() {
+void Menu::display() {
     int choice;
     while (true) {
         std::cout << "Snake game Menu:\n";
@@ -32,14 +32,13 @@ void Menu::displayMenu() {
         std::cout << "3. Exit\n";
         choice = getValidatedInput("Choose an option (1-3):", 1, 3);
         if (choice == 1) {
-            game.setCurrentState(GameState::Playing);
-            // std::cout << "Starting the game...\n";
+            snakeGame.setCurrentState(GameState::Playing);
             break;
         } if (choice == 2) {
             displayInstructions();
         } else if (choice == 3) {
-            std::cout << "Exiting the game...\n";
-            return;
+            snakeGame.setCurrentState(GameState::Exit);
+            break;
         }
     }
 }

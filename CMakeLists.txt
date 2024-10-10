@@ -12,4 +12,7 @@ add_executable(semak_cpp src/main.cpp
         src/playing.cpp
         include/playing.h
         include/gamedata.h
+        include/render.h
+        src/render.cpp
+        src/render.cpp
 )

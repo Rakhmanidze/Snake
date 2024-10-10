@@ -8,12 +8,11 @@ class SnakeGame;
 class Playing {
     public:
         Playing(SnakeGame& game);
-        void displayPlayingScene();
-        void displayTheBorder();
+        void display();
     private:
         SnakeGame& game;
         int mapWitdth = GameData::Map::WIDTH;
-        int mapHeigth = GameData::Map::HEIGHT;
+        int mapHeight = GameData::Map::HEIGHT;
         int map[GameData::Map::HEIGHT][GameData::Map::WIDTH];
         void initializeMap();
     };

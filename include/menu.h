@@ -9,11 +9,11 @@ class SnakeGame;
 class Menu {
     public:
         Menu(SnakeGame& game);
-        void displayMenu();
+        void display();
         void displayInstructions() const;
 
     private:
-        SnakeGame& game;
+        SnakeGame& snakeGame;
         int getValidatedInput(const std::string& text, int min, int max);
 };
 
