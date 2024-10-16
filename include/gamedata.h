@@ -1,6 +1,8 @@
 #ifndef GAMEDATA_H
 #define GAMEDATA_H
 
+#include <utility>
+
 class GameData {
     public:
         class MapDimensions {
@@ -14,13 +16,6 @@ class GameData {
             static const int WALL = 1;
             static const int FOOD = 2;
             static const int SNAKE = 3;
-        };
-        class Direction {
-        public:
-            static const int RIGHT = 0;
-            static const int LEFT = 1;
-            static const int UP= 2;
-            static const int DOWN = 4;
         };
 };
 

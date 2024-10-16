@@ -3,6 +3,8 @@
 #include "../include/playing.h"
 #include "../include/render.h"
 #include "../include/update.h"
+#include <thread>
+#include <chrono>
 
 GameState gameState = GameState::Menu;
 

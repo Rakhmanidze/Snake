@@ -13,9 +13,9 @@ void Render::render() {
         } else if (gameState == GameState::Playing) {
             if (!isDisplayedPlaying) {
                 snakeGame.getPlaying()->display();
+                std::this_thread::sleep_for(std::chrono::milliseconds(100));
                 isDisplayedPlaying = true;
             }
-            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         }
     }
 }

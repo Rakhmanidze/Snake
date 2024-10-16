@@ -4,10 +4,12 @@
 #include "../include/gamedata.h"
 #include <vector>
 #include "coordinate.h"
+#include "gamestate.h"
 
 class Snake {
     public:
-        // Snake();
+        Snake();
+        void update();
         void move();
         void grow();
         void eat();
@@ -15,13 +17,14 @@ class Snake {
         bool isAlive() const;
         int getLength() const;
         int getScore() const;
-        std::vector<Coordinate>& getBody() const;
+
+        std::vector<Coordinate> getBody() const;
     private:
         bool alive;
         int length;
         int score;
         std::vector<Coordinate> snake;
-        GameData::Direction currentDirection;
+        GameState currentDirection;
         int speed;
 };
 

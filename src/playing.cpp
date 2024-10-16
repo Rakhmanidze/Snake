@@ -5,6 +5,7 @@
 
 Playing::Playing(SnakeGame &game) : game(game) {
     initializeMap();
+    update();
 }
 
 void Playing::initializeMap() {
@@ -20,7 +21,26 @@ void Playing::initializeMap() {
 }
 
 void Playing::update() {
+    snake.update();
+    updateMap();
+    for (const auto &part : snake.getBody()) {
+        map[part.y][part.x] = GameData::MapTileType::EMPTY_SPACE;
+    }
+    Coordinate newHead = snake.getBody()[0];
 
+    updateSnakePosition(newHead);
+}
+
+void Playing::updateMap() {
+
+}
+
+void Playing::updateSnakePosition(const Coordinate &newHead) {
+    snake.getBody()[0] = newHead;
+    map[newHead.y][newHead.x] = GameData::MapTileType::SNAKE;
+
+    // If the snake has grown, handle the growth logic
+    // For example, if the snake has eaten food,  add a new body segment here.
 }
 
 void Playing::display() {
