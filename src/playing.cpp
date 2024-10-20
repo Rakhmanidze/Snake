@@ -4,7 +4,12 @@
 #include <iostream>
 #include <ostream>
 
-Playing::Playing(SnakeGame &game) : game(game) {
+Playing::Playing(SnakeGame &game) : snakeGame(game) {
+    initializeMap();
+}
+
+void Playing::reset() {
+    snake = Snake();
     initializeMap();
 }
 
@@ -22,7 +27,9 @@ void Playing::initializeMap() {
 
 void Playing::update() {
     removeSnakeFromMap();
-    snake.update();
+    if (snake.update()) {
+        snakeGame.setCurrentState(GameState::Menu);
+    }
     updateSnakePosition();
 }
 

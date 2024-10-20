@@ -1,8 +1,6 @@
 #ifndef GAMEDATA_H
 #define GAMEDATA_H
 
-#include <utility>
-
 class GameData {
     public:
         class MapDimensions {

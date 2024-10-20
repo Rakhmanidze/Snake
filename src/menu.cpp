@@ -6,12 +6,11 @@
 #include <ostream>
 #include <sstream>
 
-Menu::Menu(SnakeGame &game) : snakeGame(game) {
-    clearScreen();
-}
+Menu::Menu(SnakeGame &game) : snakeGame(game) {}
 
 void Menu::display() {
     int choice;
+    clearScreen();
     while (true) {
         std::cout << "Snake game Menu:\n";
         std::cout << "1. Start Game\n";
@@ -19,6 +18,7 @@ void Menu::display() {
         std::cout << "3. Exit\n";
         choice = getValidatedInput("Choose an option (1-3):", 1, 3);
         if (choice == 1) {
+            snakeGame.getPlaying()->reset();
             snakeGame.setCurrentState(GameState::Playing);
             break;
         } if (choice == 2) {

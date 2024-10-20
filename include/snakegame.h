@@ -23,6 +23,7 @@ class SnakeGame {
         Playing* playing;
         Render* render;
         Update* update;
+
 };
 
 #endif

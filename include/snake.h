@@ -9,11 +9,7 @@
 class Snake {
     public:
         Snake();
-        void update();
-        void move();
-        void grow();
-        void eat();
-        void die();
+        int update();
         bool isAlive() const;
         int getLength() const;
         int getScore() const;
@@ -26,6 +22,11 @@ class Snake {
         std::vector<Coordinate> snake;
         GameState currentDirection;
         int speed;
+        void createSnake();
+        int move();
+        void grow();
+        void eat();
+        void die();
 };
 
 #endif

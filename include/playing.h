@@ -3,6 +3,7 @@
 
 #include "snake.h"
 #include "../include/gamedata.h"
+#include "../include/snakegame.h"
 
 class SnakeGame;
 
@@ -12,16 +13,17 @@ class Playing {
         void display();
         void update();
         void SnakeMovesDisplay();
+        void reset();
 
     private:
-        SnakeGame& game;
+        SnakeGame& snakeGame;
         int mapWitdth = GameData::MapDimensions::WIDTH;
         int mapHeight = GameData::MapDimensions::HEIGHT;
         int map[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH];
         Snake snake;
         void initializeMap();
         void updateSnakePosition();
-        void removeSnakeFromMap();;
+        void removeSnakeFromMap();
     };
 
 #endif
