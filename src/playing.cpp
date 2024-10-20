@@ -1,11 +1,11 @@
 #include "../include/playing.h"
 #include "../include/gamedata.h"
+#include "../include/clearscreen.h"
 #include <iostream>
 #include <ostream>
 
 Playing::Playing(SnakeGame &game) : game(game) {
     initializeMap();
-    update();
 }
 
 void Playing::initializeMap() {
@@ -17,33 +17,34 @@ void Playing::initializeMap() {
                 map[i][j] = GameData::MapTileType::EMPTY_SPACE;
         }
     }
-    map[mapHeight / 2][mapWitdth / 2] = GameData::MapTileType::SNAKE;
+    map[snake.getBody()[0].y][snake.getBody()[0].x] = GameData::MapTileType::SNAKE;
 }
 
 void Playing::update() {
+    removeSnakeFromMap();
     snake.update();
-    updateMap();
-    for (const auto &part : snake.getBody()) {
+    updateSnakePosition();
+}
+
+void Playing::updateSnakePosition() {
+    for (const auto &part : snake.getBody())
+        map[part.y][part.x] = GameData::MapTileType::SNAKE;
+}
+
+void Playing::removeSnakeFromMap() {
+    for (const auto &part : snake.getBody())
         map[part.y][part.x] = GameData::MapTileType::EMPTY_SPACE;
-    }
-    Coordinate newHead = snake.getBody()[0];
-
-    updateSnakePosition(newHead);
 }
 
-void Playing::updateMap() {
-
-}
-
-void Playing::updateSnakePosition(const Coordinate &newHead) {
-    snake.getBody()[0] = newHead;
-    map[newHead.y][newHead.x] = GameData::MapTileType::SNAKE;
-
-    // If the snake has grown, handle the growth logic
-    // For example, if the snake has eaten food,  add a new body segment here.
+void Playing::SnakeMovesDisplay() {
+    for (int i = 0; i < mapHeight; i++)
+        for (int j = 0; j < mapWitdth; j++)
+            if (map[i][j] == GameData::MapTileType::SNAKE)
+                std::cout << "o";
 }
 
 void Playing::display() {
+    clearScreen();
     for (int i = 0; i < mapHeight; i++) {
         for (int j = 0; j < mapWitdth; j++) {
             if (j == 0 || j == mapWitdth - 1 || i == 0 || i == mapHeight - 1)

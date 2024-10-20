@@ -5,7 +5,7 @@ Direction direction = Direction::RIGHT;
 
 Snake::Snake() : alive(true), length(1), score(0), speed(1) {
     // tmp
-    snake.push_back(Coordinate(GameData::MapDimensions::WIDTH / 2, GameData::MapDimensions::HEIGHT / 2));
+    snake.push_back(Coordinate(1, GameData::MapDimensions::HEIGHT / 2));
 }
 
 void Snake::update() {
@@ -32,6 +32,7 @@ void Snake::move() {
     if (newX >= 0 && newX < GameData::MapDimensions::WIDTH && newY >= 0 && newY < GameData::MapDimensions::HEIGHT) {
         snake[0].x = newX;
         snake[0].y = newY;
+
         //tmp: change later so i will set in loop lastXY= last-1XY; last-1XY=last-2XY; and then head to those coord
     } else {
         // Handle the case where the snake hits the wall or itself

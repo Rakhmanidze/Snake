@@ -11,7 +11,8 @@ class Playing {
         Playing(SnakeGame& game);
         void display();
         void update();
-        void updateMap();
+        void SnakeMovesDisplay();
+
     private:
         SnakeGame& game;
         int mapWitdth = GameData::MapDimensions::WIDTH;
@@ -19,7 +20,8 @@ class Playing {
         int map[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH];
         Snake snake;
         void initializeMap();
-        void updateSnakePosition(const Coordinate &newHead);
+        void updateSnakePosition();
+        void removeSnakeFromMap();;
     };
 
 #endif

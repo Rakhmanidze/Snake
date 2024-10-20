@@ -1,11 +1,14 @@
 #include "../include/menu.h"
 #include "../include/gamestate.h"
 #include "../include/snakegame.h"
+#include "../include/clearscreen.h"
 #include <iostream>
 #include <ostream>
 #include <sstream>
 
-Menu::Menu(SnakeGame &game) : snakeGame(game) {}
+Menu::Menu(SnakeGame &game) : snakeGame(game) {
+    clearScreen();
+}
 
 void Menu::display() {
     int choice;
