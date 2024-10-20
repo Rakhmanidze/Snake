@@ -28,6 +28,8 @@ class Playing {
         void initializeMap();
         void updateSnakePosition();
         void removeSnakeFromMap();
+        void displayMap();
+        void displayScore();
     };
 
 #endif

@@ -16,6 +16,7 @@ class Snake {
         void setDirection(Direction direction);
         std::vector<Coordinate> getBody() const;
         void eat(Food& food);
+        int getScore() const;
 
     private:
         bool alive;

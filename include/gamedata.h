@@ -15,6 +15,10 @@ class GameData {
             static const int FOOD = 2;
             static const int SNAKE = 3;
         };
+        class Score {
+            public:
+                static const int MAX_SCORE = 5;
+        };
 };
 
 #endif

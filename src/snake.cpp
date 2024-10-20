@@ -83,10 +83,8 @@ void Snake::grow() {
 
 
 void Snake::eat(Food& food) {
-    if (snake[0].x == food.getCoordinate().x && snake[0].y == food.getCoordinate().y) {
-        grow();
-        score++;
-    }
+    grow();
+    score++;
 }
 
 void Snake::die() {
@@ -96,3 +94,8 @@ void Snake::die() {
 std::vector<Coordinate> Snake::getBody() const {
     return snake;
 }
+
+int Snake::getScore() const {
+    return score;
+}
+
