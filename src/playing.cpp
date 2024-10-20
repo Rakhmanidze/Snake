@@ -66,3 +66,7 @@ void Playing::display() {
         std::cout << "\n";
     }
 }
+
+Snake Playing::getSnake() {
+    return snake;
+}

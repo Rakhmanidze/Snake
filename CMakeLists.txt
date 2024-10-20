@@ -25,4 +25,6 @@ add_executable(semak_cpp src/main.cpp
         include/direction.h
         include/clearscreen.h
         src/clearscreen.cpp
+        include/keyboardmanager.h
+        src/keyboardmanager.cpp
 )

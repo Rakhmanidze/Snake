@@ -6,7 +6,7 @@ class GameData {
         class MapDimensions {
             public:
                 static const int WIDTH = 55;
-                static const int HEIGHT = 15;
+                static const int HEIGHT = 25;
         };
         class MapTileType {
         public:

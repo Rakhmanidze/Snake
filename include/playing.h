@@ -13,6 +13,7 @@ class Playing {
         void display();
         void update();
         void SnakeMovesDisplay();
+        Snake getSnake();
         void reset();
 
     private:

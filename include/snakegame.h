@@ -5,11 +5,13 @@
 #include "../include/menu.h"
 #include "../include/playing.h"
 #include "../include/update.h"
+#include "../include/keyboardmanager.h"
 
 class Menu;
 class Playing;
 class Render;
 class Update;
+class KeyboardManager;
 
 class SnakeGame {
     public:
@@ -17,12 +19,14 @@ class SnakeGame {
         void setCurrentState(GameState state);
         Menu* getMenu();
         Playing* getPlaying();
+        KeyboardManager* getKeyboardManager();
 
     private:
         Menu* menu;
         Playing* playing;
         Render* render;
         Update* update;
+        KeyboardManager* keyboardManager;
 
 };
 
