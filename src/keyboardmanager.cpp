@@ -5,7 +5,7 @@
 #include <ncurses.h> // For Linux/Unix and macOS
 #endif
 
-KeyboardManager::KeyboardManager(SnakeGame &game) :  snakeGame(game), currentDirection(Direction::RIGHT) {
+KeyboardManager::KeyboardManager(SnakeGame &game) :  snakeGame(game) {
 #ifdef __linux__ || defined(__APPLE__)
     // Initialize ncurses for Linux/Unix
     initscr();
@@ -14,10 +14,6 @@ KeyboardManager::KeyboardManager(SnakeGame &game) :  snakeGame(game), currentDir
     keypad(stdscr, TRUE);
     nodelay(stdscr, TRUE);
 #endif
-}
-
-Direction KeyboardManager::getDirection() {
-    return currentDirection;
 }
 
 void KeyboardManager::update() {
@@ -44,4 +40,12 @@ void KeyboardManager::update() {
     else if (ch == KEY_RIGHT)
         currentDirection = Direction::RIGHT;
 #endif
+}
+
+Direction KeyboardManager::getDirection() {
+    return currentDirection;
+}
+
+void KeyboardManager::setDirection(Direction newDirection) {
+    currentDirection = newDirection;
 }

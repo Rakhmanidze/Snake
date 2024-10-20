@@ -10,6 +10,7 @@ class KeyboardManager {
     public:
         KeyboardManager(SnakeGame& game);
         Direction getDirection();
+        void setDirection(Direction newDirection);
         void update();
 
     private:

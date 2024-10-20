@@ -1,7 +1,7 @@
 #include "../include/snake.h"
 #include "../include/direction.h"
 
-Snake::Snake() : alive(true), score(0), speed(1) {
+Snake::Snake() : alive(true), score(0), speed(1), currentDirection(Direction::RIGHT) {
     createSnake();
 }
 
@@ -33,8 +33,6 @@ void Snake::setDirection(Direction newDirection) {
         return;
         }
     direction = newDirection;
-    //tmp
-    grow();
 }
 
 int Snake::move() {

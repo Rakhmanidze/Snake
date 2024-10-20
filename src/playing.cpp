@@ -10,6 +10,7 @@ Playing::Playing(SnakeGame &game) : snakeGame(game) {
 
 void Playing::reset() {
     snake = Snake();
+    snakeGame.getKeyboardManager()->setDirection(Direction::RIGHT);
     initializeMap();
 }
 
@@ -23,6 +24,9 @@ void Playing::initializeMap() {
         }
     }
     map[snake.getBody()[0].y][snake.getBody()[0].x] = GameData::MapTileType::SNAKE;
+
+    food.spawn(snake.getBody());
+    map[food.getCoordinate().x][food.getCoordinate().x] = GameData::MapTileType::FOOD;
 }
 
 void Playing::update() {

@@ -1,6 +1,7 @@
 #ifndef PLAYING_H
 #define PLAYING_H
 
+#include "food.h"
 #include "snake.h"
 #include "../include/gamedata.h"
 #include "../include/snakegame.h"
@@ -22,6 +23,7 @@ class Playing {
         int mapHeight = GameData::MapDimensions::HEIGHT;
         int map[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH];
         Snake snake;
+        Food food;
         void initializeMap();
         void updateSnakePosition();
         void removeSnakeFromMap();
