@@ -6,7 +6,7 @@
 #endif
 
 KeyboardManager::KeyboardManager(SnakeGame &game) :  snakeGame(game) {
-#ifdef __linux__ || defined(__APPLE__)
+#if defined(__linux__) || defined(__APPLE__)
     // Initialize ncurses for Linux/Unix
     initscr();
     cbreak();

@@ -5,6 +5,9 @@
 #include <vector>
 #include "coordinate.h"
 #include "direction.h"
+#include "food.h"
+
+class Food;
 
 class Snake {
     public:
@@ -12,6 +15,7 @@ class Snake {
         int update();
         void setDirection(Direction direction);
         std::vector<Coordinate> getBody() const;
+        void eat(Food& food);
 
     private:
         bool alive;
@@ -22,7 +26,6 @@ class Snake {
         void createSnake();
         int move();
         void grow();
-        void eat();
         void die();
 };
 

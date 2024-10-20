@@ -7,15 +7,6 @@ Snake::Snake() : alive(true), score(0), speed(1), currentDirection(Direction::RI
 
 void Snake::createSnake() {
     snake.push_back(Coordinate(10, GameData::MapDimensions::HEIGHT / 2));
-    snake.push_back(Coordinate(9, GameData::MapDimensions::HEIGHT / 2));
-    snake.push_back(Coordinate(8, GameData::MapDimensions::HEIGHT / 2));
-    snake.push_back(Coordinate(7, GameData::MapDimensions::HEIGHT / 2));
-    snake.push_back(Coordinate(6, GameData::MapDimensions::HEIGHT / 2));
-    snake.push_back(Coordinate(5, GameData::MapDimensions::HEIGHT / 2));
-    snake.push_back(Coordinate(4, GameData::MapDimensions::HEIGHT / 2));
-    snake.push_back(Coordinate(3, GameData::MapDimensions::HEIGHT / 2));
-    snake.push_back(Coordinate(2, GameData::MapDimensions::HEIGHT / 2));
-    snake.push_back(Coordinate(1, GameData::MapDimensions::HEIGHT / 2));
 }
 
 int Snake::update() {
@@ -91,8 +82,11 @@ void Snake::grow() {
 }
 
 
-void Snake::eat() {
-
+void Snake::eat(Food& food) {
+    if (snake[0].x == food.getCoordinate().x && snake[0].y == food.getCoordinate().y) {
+        grow();
+        score++;
+    }
 }
 
 void Snake::die() {

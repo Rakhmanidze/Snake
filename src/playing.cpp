@@ -23,10 +23,31 @@ void Playing::initializeMap() {
                 map[i][j] = GameData::MapTileType::EMPTY_SPACE;
         }
     }
-    map[snake.getBody()[0].y][snake.getBody()[0].x] = GameData::MapTileType::SNAKE;
+    spawnMultipleFoods(20);
 
-    food.spawn(snake.getBody());
-    map[food.getCoordinate().x][food.getCoordinate().x] = GameData::MapTileType::FOOD;
+    map[snake.getBody()[0].y][snake.getBody()[0].x] = GameData::MapTileType::SNAKE;
+}
+
+void Playing::spawnMultipleFoods(int count) {
+    foods.clear();
+    for (int i = 0; i < count; ++i) {
+        Food food;
+
+        bool validPosition = false;
+        while (!validPosition) {
+            food.spawn(snake.getBody());
+            validPosition = true;
+
+            for (const auto& existingFood : foods) {
+                if (existingFood.getCoordinate() == food.getCoordinate()) {
+                    validPosition = false;
+                    break;
+                }
+            }
+        }
+        foods.push_back(food);
+        map[food.getCoordinate().y][food.getCoordinate().x] = GameData::MapTileType::FOOD;
+    }
 }
 
 void Playing::update() {
@@ -35,6 +56,9 @@ void Playing::update() {
         snakeGame.setCurrentState(GameState::Menu);
     }
     updateSnakePosition();
+    for (auto &food : foods) {
+        snake.eat(food);
+    }
 }
 
 void Playing::updateSnakePosition() {

@@ -23,7 +23,8 @@ class Playing {
         int mapHeight = GameData::MapDimensions::HEIGHT;
         int map[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH];
         Snake snake;
-        Food food;
+        std::vector<Food> foods;
+        void spawnMultipleFoods(int count);
         void initializeMap();
         void updateSnakePosition();
         void removeSnakeFromMap();
