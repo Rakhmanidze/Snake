@@ -12,6 +12,7 @@ Playing::Playing(SnakeGame &game) : snakeGame(game) {
 
 void Playing::reset() {
     snake = Snake();
+    direction = Direction::RIGHT;
     snakeGame.getKeyboardManager()->setDirection(Direction::RIGHT);
     initializeMap();
 }

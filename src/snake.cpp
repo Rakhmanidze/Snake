@@ -6,7 +6,9 @@ Snake::Snake() : alive(true), score(0), speed(1), currentDirection(Direction::RI
 }
 
 void Snake::createSnake() {
-    snake.push_back(Coordinate(10, GameData::MapDimensions::HEIGHT / 2));
+    snake.push_back(Coordinate(5, GameData::MapDimensions::HEIGHT / 2));
+    snake.push_back(Coordinate(4, GameData::MapDimensions::HEIGHT / 2));
+    snake.push_back(Coordinate(3, GameData::MapDimensions::HEIGHT / 2));
 }
 
 int Snake::update() {

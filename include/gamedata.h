@@ -17,7 +17,7 @@ class GameData {
         };
         class Score {
             public:
-                static const int MAX_SCORE = 5;
+                static const int MAX_SCORE = 10;
         };
 };
 
