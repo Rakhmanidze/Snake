@@ -8,7 +8,7 @@ class SnakeGame;
 class Render {
     public:
         Render(SnakeGame& snakeGame);
-        void render();
+        void render() const;
     private:
         SnakeGame& snakeGame;
 };

@@ -8,7 +8,7 @@ class SnakeGame;
 class Update {
     public:
         Update(SnakeGame& snakeGame);
-        void update();
+        void update() const;
     private:
         SnakeGame& snakeGame;
 };

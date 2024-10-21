@@ -119,7 +119,7 @@ void Playing::displayMap() {
     }
 }
 
-void  Playing::displayScore() {
+void  Playing::displayScore() const {
     std::cout << "Current Score: " << snake.getScore() << " | Max Score: " << GameData::Score::MAX_SCORE << "\n";
 }
 

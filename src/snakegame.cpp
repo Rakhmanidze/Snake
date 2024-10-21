@@ -44,14 +44,14 @@ void SnakeGame::setCurrentState(GameState state) {
     gameState = state;
 }
 
-Menu* SnakeGame::getMenu() {
+Menu* SnakeGame::getMenu() const {
     return menu;
 }
 
-Playing* SnakeGame::getPlaying() {
+Playing* SnakeGame::getPlaying() const {
     return playing;
 }
 
-KeyboardManager* SnakeGame::getKeyboardManager() {
+KeyboardManager* SnakeGame::getKeyboardManager() const {
     return keyboardManager;
 }

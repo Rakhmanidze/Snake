@@ -16,10 +16,10 @@ class KeyboardManager;
 class SnakeGame {
     public:
         void run();
-        void setCurrentState(GameState state);
-        Menu* getMenu();
-        Playing* getPlaying();
-        KeyboardManager* getKeyboardManager();
+        static void setCurrentState(GameState state);
+        Menu* getMenu() const;
+        Playing* getPlaying() const;
+        KeyboardManager* getKeyboardManager() const;
 
     private:
         Menu* menu;

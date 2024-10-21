@@ -1,7 +1,7 @@
 #include "../include/snake.h"
 #include "../include/direction.h"
 
-Snake::Snake() : alive(true), score(0), speed(1), currentDirection(Direction::RIGHT) {
+Snake::Snake() : alive(true), score(0), currentDirection(Direction::RIGHT) {
     createSnake();
 }
 
@@ -15,7 +15,7 @@ int Snake::update() {
     return move();
 }
 
-void Snake::setDirection(Direction newDirection) {
+void Snake::setDirection(Direction newDirection) const {
     if (!alive)
         return;
 
@@ -43,7 +43,7 @@ int Snake::move() {
     else if (direction == Direction::DOWN)
         newY += 1;
 
-    if (newX < 0 || newX >= GameData::MapDimensions::WIDTH || newY < 0 || newY >= GameData::MapDimensions::HEIGHT) {
+    if (newX < 1 || newX >= GameData::MapDimensions::WIDTH || newY < 1 || newY >= GameData::MapDimensions::HEIGHT) {
         die();
         return 1;
     }

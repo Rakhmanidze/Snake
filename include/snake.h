@@ -13,7 +13,7 @@ class Snake {
     public:
         Snake();
         int update();
-        void setDirection(Direction direction);
+        void setDirection(Direction direction) const;
         std::vector<Coordinate> getBody() const;
         void eat(Food& food);
         int getScore() const;
@@ -23,7 +23,6 @@ class Snake {
         int score;
         std::vector<Coordinate> snake;
         Direction currentDirection;
-        int speed;
         void createSnake();
         int move();
         void grow();

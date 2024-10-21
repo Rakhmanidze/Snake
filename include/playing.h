@@ -29,7 +29,7 @@ class Playing {
         void updateSnakePosition();
         void removeSnakeFromMap();
         void displayMap();
-        void displayScore();
+        void displayScore() const;
     };
 
 #endif
