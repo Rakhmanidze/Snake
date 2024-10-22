@@ -3,6 +3,9 @@
 
 #include <cstdlib>
 
+/**
+ * Function to clear the terminal screen using system command
+ */
 void clearScreen();
 
-#endif //CLEARSCREEN_H
+#endif

@@ -18,10 +18,9 @@ void Food::spawn(const std::vector<Coordinate>& snakeBody) {
 }
 
 bool Food::isFoodOnSnake(const std::vector<Coordinate>& snakeBody) const {
-    for (const auto& segment : snakeBody) {
-        if (segment.x == foodXY.x && segment.y == foodXY.y)
+    for (const auto& segment : snakeBody)
+        if (segment == foodXY)
             return true;
-    }
     return false;
 }
 

@@ -6,30 +6,87 @@
 #include "../include/gamedata.h"
 #include "../include/snakegame.h"
 
+/**
+ *  Forward declaration of the SnakeGame class.
+ */
 class SnakeGame;
 
+/**
+ * Manages the state of the game while it is being played, including displaying the game state,
+ * updating the game logic, and handling the snake's movements and food spawning.
+ */
 class Playing {
     public:
+        /**
+         * Constructor to initialize the Playing state with a reference to the SnakeGame.
+         * @param game Reference to the SnakeGame instance.
+         */
         Playing(SnakeGame& game);
+
+        /**
+         * Displays the current game state to the user, including the map and score.
+         */
         void display();
+
+        /**
+         * Updates the game state, including snake movement, food consumption, and checking for game-over conditions.
+         */
         void update();
+
+        /**
+         * Displays the snake's current position on the map.
+         */
         void SnakeMovesDisplay();
+
+        /**
+         * Retrieves the current snake object.
+         * @return The current Snake object.
+         */
         Snake getSnake();
+
+        /**
+         * Resets the game state to the initial conditions.
+         */
         void reset();
 
     private:
-        SnakeGame& snakeGame;
+        SnakeGame& snakeGame; /** Reference to the SnakeGame instance for managing game state */
         int mapWitdth = GameData::MapDimensions::WIDTH;
         int mapHeight = GameData::MapDimensions::HEIGHT;
-        int map[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH];
-        Snake snake;
-        std::vector<Food> foods;
+        int map[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH]; /** 2D array representing the game map */
+        Snake snake; /** The current snake object in the game */
+        std::vector<Food> foods; /** List of food items currently on the map */
+
+        /**
+         * Spawns a specified number of food items on the map, ensuring they do not overlap with the snake's body.
+         * @param count The number of food items to spawn.
+         */
         void spawnMultipleFoods(int count);
+
+        /**
+         * Initializes the game map with walls and empty spaces, and places the snake and food items.
+         */
         void initializeMap();
+
+        /**
+         * Updates the position of the snake on the map.
+         */
         void updateSnakePosition();
+
+        /**
+         * Removes the snake's current position from the map.
+         */
         void removeSnakeFromMap();
+
+        /**
+         * Displays the current state of the map, including walls, food, and snake.
+         */
         void displayMap();
+
+        /**
+         * Displays the current score of the player.
+         */
         void displayScore() const;
-    };
+};
 
 #endif
