@@ -12,7 +12,6 @@ Direction direction = Direction::RIGHT;
 void SnakeGame::updateLoop() {
     while (gameState != GameState::Exit && getPlaying()->isRunning()) {
         update->update();
-        playing->getSnake().setDirection(keyboardManager->getDirection());
         std::this_thread::sleep_for(std::chrono::milliseconds(150));
     }
 }
@@ -24,6 +23,14 @@ void SnakeGame::renderLoop() {
      }
 }
 
+void SnakeGame::inputLoop() {
+    while (gameState != GameState::Exit) {
+        getKeyboardManager()->update();
+        direction = getKeyboardManager()->getDirection();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+}
+
 void SnakeGame::run() {
     menu = new Menu(*this);
     playing = new Playing(*this);
@@ -33,9 +40,11 @@ void SnakeGame::run() {
 
     std::thread updateThread(updateLoop, this);
     std::thread renderThread(renderLoop, this);
+    std::thread inputThread(inputLoop, this);
 
     updateThread.join();
     renderThread.join();
+    inputThread.join();
 
     delete menu;
     delete playing;

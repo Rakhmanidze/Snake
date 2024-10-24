@@ -33,6 +33,7 @@ class SnakeGame {
         */
         void renderLoop();
 
+        void inputLoop();
         /**
          * Starts the game loop, managing the flow between different game states.
          */

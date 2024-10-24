@@ -6,6 +6,5 @@ Update::Update(SnakeGame &snakeGame) : snakeGame(snakeGame) {}
 void Update::update() const {
     if (gameState == GameState::Playing) {
         snakeGame.getPlaying()->update();
-        snakeGame.getKeyboardManager()->update();
     }
 }
