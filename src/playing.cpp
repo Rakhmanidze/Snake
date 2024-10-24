@@ -15,6 +15,9 @@ void Playing::reset() {
     direction = Direction::RIGHT;
     snakeGame.getKeyboardManager()->setDirection(Direction::RIGHT);
     initializeMap();
+    running = true;
+    printFinishMessageOnce = false;
+    gameover = false;
 }
 
 void Playing::initializeMap() {
@@ -56,9 +59,8 @@ void Playing::spawnMultipleFoods(int count) {
 void Playing::update() {
     removeSnakeFromMap();
     if (snake.update()) {
-        std::cout << "Game Over!\n";
-        std::cout << "Redirecting to menu in 5 seconds...\n";
-
+        running = false;
+        gameover = true;
         std::this_thread::sleep_for(std::chrono::seconds(5));
         snakeGame.setCurrentState(GameState::Menu);
     }
@@ -72,12 +74,13 @@ void Playing::update() {
     }
 
     if (snake.getScore() >= GameData::Score::MAX_SCORE) {
-        std::cout << "Congratulations! You've won the game!\n";
-        std::cout << "Redirecting to menu in 5 seconds...\n";
-
+        running = false;
+        gameover = false;
         std::this_thread::sleep_for(std::chrono::seconds(5));
         snakeGame.setCurrentState(GameState::Menu);
     }
+    if (!running)
+        reset();
 }
 
 void Playing::updateSnakePosition() {
@@ -97,10 +100,26 @@ void Playing::SnakeMovesDisplay() {
                 std::cout << "o";
 }
 
+void Playing::printGameFinishedMessage() {
+    if (!printFinishMessageOnce) {
+        if (gameover) {
+            std::cout << "Game Over!\n";
+            std::cout << "Redirecting to menu in 5 seconds...\n";
+        } else if (!gameover) {
+            std::cout << "Congratulations! You've won the game!\n";
+            std::cout << "Redirecting to menu in 5 seconds...\n";
+        }
+        printFinishMessageOnce = true;
+    }
+}
+
 void Playing::display() {
-    clearScreen();
-    displayMap();
-    displayScore();
+    if (running) {
+        clearScreen();
+        displayMap();
+        displayScore();
+    } else
+        printGameFinishedMessage();
 }
 
 void Playing::displayMap() {
@@ -125,4 +144,8 @@ void  Playing::displayScore() const {
 
 Snake Playing::getSnake() {
     return snake;
+}
+
+bool Playing::isRunning() {
+    return running;
 }

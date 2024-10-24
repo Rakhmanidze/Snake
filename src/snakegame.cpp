@@ -5,13 +5,25 @@
 #include "../include/update.h"
 #include "../include/direction.h"
 #include <thread>
-#include <chrono>
 
 GameState gameState = GameState::Menu;
 Direction direction = Direction::RIGHT;
 
-const int TARGET_FPS = 7; // Target frames per second
-const int FRAME_TIME = 1000 / TARGET_FPS; // Time per frame in milliseconds
+void SnakeGame::updateLoop() {
+    while (gameState != GameState::Exit && getPlaying()->isRunning()) {
+        update->update();
+        playing->getSnake().setDirection(keyboardManager->getDirection());
+        std::this_thread::sleep_for(std::chrono::milliseconds(150));
+    }
+    setCurrentState(GameState::Menu);
+}
+
+void SnakeGame::renderLoop() {
+     while (gameState != GameState::Exit) {
+         render->render();
+         std::this_thread::sleep_for(std::chrono::milliseconds(150));
+     }
+}
 
 void SnakeGame::run() {
     menu = new Menu(*this);
@@ -19,20 +31,13 @@ void SnakeGame::run() {
     render = new Render(*this);
     update = new Update(*this);
     keyboardManager = new KeyboardManager(*this);
-    while (gameState != GameState::Exit) {
-        auto frameStart = std::chrono::high_resolution_clock::now();
 
-        update->update();
-        playing->getSnake().setDirection(keyboardManager->getDirection());
-        render->render();
+    std::thread updateThread(updateLoop, this);
+    std::thread renderThread(renderLoop, this);
 
-        auto frameEnd = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double, std::milli> frameDuration = frameEnd - frameStart;
-        int sleepTime = FRAME_TIME - static_cast<int>(frameDuration.count());
+    updateThread.join();
+    renderThread.join();
 
-        if (sleepTime > 0)
-            std::this_thread::sleep_for(std::chrono::milliseconds(sleepTime));
-    }
     delete menu;
     delete playing;
     delete render;

@@ -42,4 +42,4 @@ class KeyboardManager {
         SnakeGame& snakeGame; /** Reference to the SnakeGame instance */
 };
 
-#endif //KEYBOARDMANAGER_H
+#endif

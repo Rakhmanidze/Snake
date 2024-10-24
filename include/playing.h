@@ -48,6 +48,7 @@ class Playing {
          * Resets the game state to the initial conditions.
          */
         void reset();
+        bool isRunning();
 
     private:
         SnakeGame& snakeGame; /** Reference to the SnakeGame instance for managing game state */
@@ -56,7 +57,9 @@ class Playing {
         int map[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH]; /** 2D array representing the game map */
         Snake snake; /** The current snake object in the game */
         std::vector<Food> foods; /** List of food items currently on the map */
-
+        bool running = true;
+        bool printFinishMessageOnce = false;
+        bool gameover = false;
         /**
          * Spawns a specified number of food items on the map, ensuring they do not overlap with the snake's body.
          * @param count The number of food items to spawn.
@@ -87,6 +90,8 @@ class Playing {
          * Displays the current score of the player.
          */
         void displayScore() const;
+
+        void printGameFinishedMessage();
 };
 
 #endif

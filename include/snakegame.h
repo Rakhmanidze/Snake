@@ -21,6 +21,10 @@ class KeyboardManager;
  */
 class SnakeGame {
     public:
+ void updateLoop();
+
+ void renderLoop();
+
         /**
          * Starts the game loop, managing the flow between different game states.
          */

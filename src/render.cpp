@@ -1,8 +1,5 @@
 #include "../include/render.h"
 #include "../include/gamestate.h"
-#include <thread>
-#include <chrono>
-#include <iostream>
 
 Render::Render(SnakeGame &snakeGame) : snakeGame(snakeGame) {}
 
