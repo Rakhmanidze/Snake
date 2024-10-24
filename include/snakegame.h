@@ -21,9 +21,17 @@ class KeyboardManager;
  */
 class SnakeGame {
     public:
- void updateLoop();
+        /**
+         * Updates the game state in each iteration of the game loop.
+         * Handles the logic of the game, such as player movement, collision detection, etc.
+        */
+        void updateLoop();
 
- void renderLoop();
+        /**
+         * Renders the game on the screen in each iteration of the game loop.
+         * It draws all the game elements like the snake, the game board, and the score.
+        */
+        void renderLoop();
 
         /**
          * Starts the game loop, managing the flow between different game states.

@@ -93,13 +93,6 @@ void Playing::removeSnakeFromMap() {
         map[part.y][part.x] = GameData::MapTileType::EMPTY_SPACE;
 }
 
-void Playing::SnakeMovesDisplay() {
-    for (int i = 0; i < mapHeight; i++)
-        for (int j = 0; j < mapWitdth; j++)
-            if (map[i][j] == GameData::MapTileType::SNAKE)
-                std::cout << "o";
-}
-
 void Playing::printGameFinishedMessage() {
     if (!printFinishMessageOnce) {
         if (gameover) {

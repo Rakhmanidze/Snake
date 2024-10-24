@@ -34,11 +34,6 @@ class Playing {
         void update();
 
         /**
-         * Displays the snake's current position on the map.
-         */
-        void SnakeMovesDisplay();
-
-        /**
          * Retrieves the current snake object.
          * @return The current Snake object.
          */
@@ -48,6 +43,11 @@ class Playing {
          * Resets the game state to the initial conditions.
          */
         void reset();
+
+        /**
+         * Checks if the game is currently running.
+         * @return True if the game is running, false otherwise.
+        */
         bool isRunning();
 
     private:
@@ -57,9 +57,10 @@ class Playing {
         int map[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH]; /** 2D array representing the game map */
         Snake snake; /** The current snake object in the game */
         std::vector<Food> foods; /** List of food items currently on the map */
-        bool running = true;
-        bool printFinishMessageOnce = false;
-        bool gameover = false;
+        bool running = true; /** Indicates if the game is currently running */
+        bool printFinishMessageOnce = false; /** Flag to ensure the game-over message is printed only once */
+        bool gameover = false; /** Indicates whether the game is over */
+
         /**
          * Spawns a specified number of food items on the map, ensuring they do not overlap with the snake's body.
          * @param count The number of food items to spawn.
@@ -91,6 +92,10 @@ class Playing {
          */
         void displayScore() const;
 
+        /**
+         * Prints a message indicating the game has finished.
+         * This message is displayed when the game ends, based on the game-over conditions.
+        */
         void printGameFinishedMessage();
 };
 
