@@ -15,7 +15,6 @@ void SnakeGame::updateLoop() {
         playing->getSnake().setDirection(keyboardManager->getDirection());
         std::this_thread::sleep_for(std::chrono::milliseconds(150));
     }
-    setCurrentState(GameState::Menu);
 }
 
 void SnakeGame::renderLoop() {
