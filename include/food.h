@@ -11,14 +11,14 @@
 class Food {
     public:
         /**
-        * Default constructor to initialize the Food object.
-        */
+         * Default constructor to initialize the Food object.
+         */
         Food();
 
         /**
-        * Spawns the food at a random location not occupied by the snake.
-        * @param snakeBody A vector containing the coordinates of the snake's body segments.
-        */
+         * Spawns the food at a random location not occupied by the snake.
+         * @param snakeBody A vector containing the coordinates of the snake's body segments.
+         */
         void spawn(const std::vector<Coordinate>& snakeBody);
 
         /**
@@ -39,14 +39,14 @@ class Food {
         Coordinate getCoordinate() const;
 
     private:
-        bool exists; ///< Indicates whether the food is currently in existence.
-        Coordinate foodXY; ///< The coordinates of the food.
+        bool exists; /** Indicates whether the food is currently in existence. */
+        Coordinate foodXY; /** The coordinates of the food. */
 
         /**
-        * Checks if the food's coordinates overlap with any part of the snake's body.
-        * @param snakeBody A vector containing the coordinates of the snake's body segments.
-        * @return true if the food is located on the snake; false otherwise.
-        */
+         * Checks if the food's coordinates overlap with any part of the snake's body.
+         * @param snakeBody A vector containing the coordinates of the snake's body segments.
+         * @return true if the food is located on the snake; false otherwise.
+         */
         bool isFoodOnSnake(const std::vector<Coordinate>& snakeBody) const;
 };
 

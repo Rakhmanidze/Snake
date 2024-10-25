@@ -26,7 +26,7 @@ class Update {
         void update() const;
 
     private:
-        SnakeGame& snakeGame;  /** Reference to the main game object for accessing game state and functions */
+        SnakeGame& snakeGame; /** Reference to the main game object for accessing game state and functions */
 };
 
 #endif

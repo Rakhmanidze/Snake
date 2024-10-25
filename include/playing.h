@@ -47,7 +47,7 @@ class Playing {
         /**
          * Checks if the game is currently running.
          * @return True if the game is running, false otherwise.
-        */
+         */
         bool isRunning();
 
     private:
@@ -95,7 +95,7 @@ class Playing {
         /**
          * Prints a message indicating the game has finished.
          * This message is displayed when the game ends, based on the game-over conditions.
-        */
+         */
         void printGameFinishedMessage();
 };
 

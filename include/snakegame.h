@@ -24,13 +24,13 @@ class SnakeGame {
         /**
          * Updates the game state in each iteration of the game loop.
          * Handles the logic of the game, such as player movement, collision detection, etc.
-        */
+         */
         void updateLoop();
 
         /**
          * Renders the game on the screen in each iteration of the game loop.
          * It draws all the game elements like the snake, the game board, and the score.
-        */
+         */
         void renderLoop();
 
         void inputLoop();

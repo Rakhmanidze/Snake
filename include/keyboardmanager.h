@@ -10,7 +10,7 @@
 class SnakeGame;
 
 /**
- * Manages keyboard input for controlling the snake's direction.
+ * Manages keyboard input for controlling the snake's direction and Menu logic.
  */
 class KeyboardManager {
     public:
@@ -38,7 +38,7 @@ class KeyboardManager {
         void update();
 
     private:
-        Direction currentDirection;
+        Direction currentDirection; /** The current direction of the snake */
         SnakeGame& snakeGame; /** Reference to the SnakeGame instance */
 };
 

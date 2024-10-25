@@ -26,21 +26,32 @@ class Menu {
         void display();
 
         /**
-         * Displays the game instructions to help the player understand the rules.
+         * Sets whether the instructions should be displayed.
+         * @param value A boolean indicating if instructions should be displayed (true) or not (false).
          */
-        void displayInstructions() const;
+        void setIntructions(bool value);
+
+        /**
+         * Sets whether the menu has been displayed.
+         * @param value A boolean indicating if the menu has been displayed (true) or not (false).
+         */
+        void setMenuDisplayed(bool value);
 
     private:
         SnakeGame& snakeGame; /** Reference to the SnakeGame instance for managing game state */
+        bool isInstructionsDisplayed = false; /** Flag indicating if instructions are currently displayed */
+        bool isMenuDisplayed = false; /** Flag indicating if the menu has been displayed */
 
         /**
-         * Prompts the user for input and validates it against the specified range.
-         * @param text The prompt message to display.
-         * @param min The minimum valid input value.
-         * @param max The maximum valid input value.
-         * @return The validated input from the user.
+         * Displays the choices available in the main menu.
+         * This includes the options for starting the game, viewing instructions, and exiting.
          */
-        int getValidatedInput(const std::string& text, int min, int max);
+        void displayChoice();
+
+        /**
+         * Displays the game instructions to help the player understand the rules.
+         */
+        void displayInstructions();
 };
 
 #endif
