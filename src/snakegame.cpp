@@ -26,7 +26,6 @@ void SnakeGame::renderLoop() {
 void SnakeGame::inputLoop() {
     while (gameState != GameState::Exit) {
         getKeyboardManager()->update();
-        direction = getKeyboardManager()->getDirection();
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 }

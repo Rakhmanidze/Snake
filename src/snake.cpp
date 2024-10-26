@@ -1,7 +1,7 @@
 #include "../include/snake.h"
 #include "../include/direction.h"
 
-Snake::Snake() : alive(true), score(0), currentDirection(Direction::RIGHT) {
+Snake::Snake() : alive(true), score(0) {
     createSnake();
 }
 
@@ -13,19 +13,6 @@ void Snake::createSnake() {
 
 int Snake::update() {
     return move();
-}
-
-void Snake::setDirection(Direction newDirection) const {
-    if (!alive)
-        return;
-
-    if ((newDirection == Direction::LEFT && direction == Direction::RIGHT) ||
-        (newDirection == Direction::RIGHT && direction == Direction::LEFT) ||
-        (newDirection == Direction::UP && direction == Direction::DOWN) ||
-        (newDirection == Direction::DOWN && direction == Direction::UP)) {
-        return;
-        }
-    direction = newDirection;
 }
 
 int Snake::move() {
@@ -84,7 +71,7 @@ void Snake::grow() {
 }
 
 
-void Snake::eat(Food& food) {
+void Snake::eat() {
     grow();
     score++;
 }

@@ -13,7 +13,6 @@ Playing::Playing(SnakeGame &game) : snakeGame(game) {
 void Playing::reset() {
     snake = Snake();
     direction = Direction::RIGHT;
-    snakeGame.getKeyboardManager()->setDirection(Direction::RIGHT);
     initializeMap();
     running = true;
     printFinishMessageOnce = false;
@@ -67,7 +66,7 @@ void Playing::update() {
     updateSnakePosition();
     for (auto food = foods.begin(); food != foods.end(); ) {
         if (snake.getBody()[0].x == food->getCoordinate().x && snake.getBody()[0].y == food->getCoordinate().y) {
-            snake.eat(*food);
+            snake.eat();
             food = foods.erase(food);
         } else
             food++;

@@ -4,8 +4,6 @@
 #include "../include/gamedata.h"
 #include <vector>
 #include "coordinate.h"
-#include "direction.h"
-#include "food.h"
 
 /**
  *  Forward declaration of the Food class.
@@ -30,12 +28,6 @@ class Snake {
         int update();
 
         /**
-         * Sets the current direction of the snake.
-         * @param direction The new direction for the snake to move.
-         */
-        void setDirection(Direction direction) const;
-
-        /**
          * Retrieves the current body segments of the snake.
          * @return A vector containing the coordinates of the snake's body segments.
          */
@@ -43,9 +35,8 @@ class Snake {
 
         /**
          * Makes the snake eat the given food, increasing its score and size.
-         * @param food Reference to the food object being eaten.
          */
-        void eat(Food& food);
+        void eat();
 
         /**
          * Retrieves the current score of the snake.
@@ -57,7 +48,6 @@ class Snake {
         bool alive; /** Indicates whether the snake is alive */
         int score; /** The current score of the snake */
         std::vector<Coordinate> snake; /** The body segments of the snake */
-        Direction currentDirection;
 
         /**
          * Initializes the snake's starting position and size.

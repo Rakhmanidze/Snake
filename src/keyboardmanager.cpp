@@ -22,13 +22,13 @@ void KeyboardManager::update() {
         if (_kbhit()) {
             int ch = _getch();
             if (ch == 72)
-                currentDirection = Direction::UP;
+                setDirection(Direction::UP);
             else if (ch == 80)
-                currentDirection = Direction::DOWN;
+                setDirection(Direction::DOWN);
             else if (ch == 75)
-                currentDirection = Direction::LEFT;
+               setDirection(Direction::LEFT);
             else if (ch == 77)
-                currentDirection = Direction::RIGHT;
+                setDirection(Direction::RIGHT);
         }
     } else if (gameState == GameState::Menu) {
         if (_kbhit()) {
@@ -49,13 +49,13 @@ void KeyboardManager::update() {
     if (gameState == GameState::Playing) {
         int ch = getch();
         if (ch == KEY_UP)
-            currentDirection = Direction::UP;
+            setDirection(Direction::UP);
         else if (ch == KEY_DOWN)
-            currentDirection = Direction::DOWN;
+            setDirection(Direction::DOWN);
         else if (ch == KEY_LEFT)
-            currentDirection = Direction::LEFT;
+            setDirection(Direction::LEFT);
         else if (ch == KEY_RIGHT)
-            currentDirection = Direction::RIGHT;
+            setDirection(Direction::RIGHT);
     } else if (gameState == GameState::Menu) {
         int ch = getch();
         if (ch == '1') {
@@ -72,10 +72,12 @@ void KeyboardManager::update() {
 #endif
 }
 
-Direction KeyboardManager::getDirection() {
-    return currentDirection;
-}
-
 void KeyboardManager::setDirection(Direction newDirection) {
-    currentDirection = newDirection;
+    if ((newDirection == Direction::LEFT && direction == Direction::RIGHT) ||
+      (newDirection == Direction::RIGHT && direction == Direction::LEFT) ||
+      (newDirection == Direction::UP && direction == Direction::DOWN) ||
+      (newDirection == Direction::DOWN && direction == Direction::UP)) {
+        return;
+      }
+    direction = newDirection;
 }

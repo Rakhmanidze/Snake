@@ -21,12 +21,6 @@ class KeyboardManager {
         KeyboardManager(SnakeGame& game);
 
         /**
-         * Gets the current direction of the snake.
-         * @return The current direction of the snake.
-         */
-        Direction getDirection();
-
-        /**
          * Sets a new direction for the snake.
          * @param newDirection The new direction to set.
          */
@@ -38,7 +32,6 @@ class KeyboardManager {
         void update();
 
     private:
-        Direction currentDirection; /** The current direction of the snake */
         SnakeGame& snakeGame; /** Reference to the SnakeGame instance */
 };
 
