@@ -1,5 +1,5 @@
 #include "../include/update.h"
-#include "../include/gamestate.h"
+#include "../include/gameState.h"
 
 Update::Update(SnakeGame &snakeGame) : snakeGame(snakeGame) {}
 

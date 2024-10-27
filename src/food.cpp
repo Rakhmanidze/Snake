@@ -1,7 +1,7 @@
 #include "../include/food.h"
-#include "../include/gamedata.h"
+#include "../include/gameData.h"
 #include <ctime>
-#include <stdlib.h>
+#include <cstdlib>
 
 Food::Food() : exists(true) {
     srand(static_cast<unsigned int>(time(0)));

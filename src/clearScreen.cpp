@@ -1,4 +1,4 @@
-#include "../include/clearscreen.h"
+#include "../include/clearScreen.h"
 
 void clearScreen() {
     #ifdef _WIN32

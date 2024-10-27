@@ -1,4 +1,4 @@
-#include "../include/keyboardmanager.h"
+#include "../include/keyboardListener.h"
 #ifdef _WIN32
 #include <conio.h>
 #elif defined(__linux__) || defined(__APPLE__)
@@ -16,7 +16,7 @@ KeyboardManager::KeyboardManager(SnakeGame &game) :  snakeGame(game) {
 #endif
 }
 
-void KeyboardManager::update() {
+void KeyboardManager::handleInput() {
 #ifdef _WIN32
     if (snakeGame.getCurrentGameState() ==  GameState::Playing) {
         if (_kbhit()) {

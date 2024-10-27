@@ -1,5 +1,5 @@
 #include "../include/render.h"
-#include "../include/gamestate.h"
+#include "../include/gameState.h"
 
 Render::Render(SnakeGame &snakeGame) : snakeGame(snakeGame) {}
 

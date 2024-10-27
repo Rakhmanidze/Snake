@@ -1,7 +1,7 @@
 #ifndef KEYBOARDMANAGER_H
 #define KEYBOARDMANAGER_H
 
-#include "../include/snakegame.h"
+#include "../include/snakeGame.h"
 
 /**
  *  Forward declaration of the SnakeGame class.
@@ -32,12 +32,12 @@ class KeyboardManager {
         int getLastInputDirection();
 
         /**
-         * Updates the keyboard state, handling any input.
+         * Handles input and updates the keyboard state based on the current game state.
          */
-        void update();
+        void handleInput();
 
     private:
-        SnakeGame& snakeGame; /** Reference to the SnakeGame instance */
+        SnakeGame& snakeGame; /** Reference to the SnakeGame instance. */
         int lastInputDirection; /** The last input direction for the snake. */
 };
 

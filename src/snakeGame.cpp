@@ -1,4 +1,4 @@
-#include "../include/snakegame.h"
+#include "../include/snakeGame.h"
 #include "../include/menu.h"
 #include "../include/playing.h"
 #include "../include/render.h"
@@ -21,7 +21,7 @@ void SnakeGame::renderLoop() {
 
 void SnakeGame::inputLoop() {
     while (currentGameState != GameState::Exit) {
-        getKeyboardManager()->update();
+        getKeyboardManager()->handleInput();
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 }

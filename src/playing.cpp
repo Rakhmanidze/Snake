@@ -1,6 +1,6 @@
 #include "../include/playing.h"
-#include "../include/gamedata.h"
-#include "../include/clearscreen.h"
+#include "../include/gameData.h"
+#include "../include/clearScreen.h"
 #include <iostream>
 #include <ostream>
 #include <chrono>

@@ -1,11 +1,11 @@
 #ifndef SNAKEGAME_H
 #define SNAKEGAME_H
 
-#include "../include/gamestate.h"
+#include "../include/gameState.h"
 #include "../include/menu.h"
 #include "../include/playing.h"
 #include "../include/update.h"
-#include "../include/keyboardmanager.h"
+#include "../include/keyboardListener.h"
 
 /**
  *  Forward declarations for other classes used within SnakeGame.
@@ -33,7 +33,12 @@ class SnakeGame {
          */
         void renderLoop();
 
+        /**
+         * Handles user input in each iteration of the game loop.
+         * It captures keyboard events and updates the game state accordingly.
+         */
         void inputLoop();
+
         /**
          * Starts the game loop, managing the flow between different game states.
          */
@@ -70,11 +75,11 @@ class SnakeGame {
         KeyboardManager* getKeyboardManager() const;
 
     private:
-        Menu* menu;                       /** Pointer to the menu object */
-        Playing* playing;                 /** Pointer to the playing object */
-        Render* render;                   /** Pointer to the render object */
-        Update* update;                   /** Pointer to the update object */
-        KeyboardManager* keyboardManager; /** Pointer to the keyboard manager object */
+        Menu* menu;                       /** Pointer to the menu object. */
+        Playing* playing;                 /** Pointer to the playing object. */
+        Render* render;                   /** Pointer to the render object. */
+        Update* update;                   /** Pointer to the update object. */
+        KeyboardManager* keyboardManager; /** Pointer to the keyboard manager object. */
         GameState currentGameState = GameState::Menu;
 };
 

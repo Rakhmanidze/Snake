@@ -1,7 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "../include/snakegame.h"
+#include "../include/snakeGame.h"
 
 /**
  *  Forward declaration of the SnakeGame class.
@@ -37,9 +37,9 @@ class Menu {
         void setMenuDisplayed(bool value);
 
     private:
-        SnakeGame& snakeGame; /** Reference to the SnakeGame instance for managing game state */
-        bool isInstructionsDisplayed = false; /** Flag indicating if instructions are currently displayed */
-        bool isMenuDisplayed = false; /** Flag indicating if the menu has been displayed */
+        SnakeGame& snakeGame; /** Reference to the SnakeGame instance for managing game state. */
+        bool isInstructionsDisplayed = false; /** Flag indicating if instructions are currently displayed. */
+        bool isMenuDisplayed = false; /** Flag indicating if the menu has been displayed. */
 
         /**
          * Displays the choices available in the main menu.

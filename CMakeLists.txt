@@ -24,6 +24,6 @@ add_executable(semak_cpp src/main.cpp
         src/food.cpp
         include/clearscreen.h
         src/clearscreen.cpp
-        include/keyboardmanager.h
-        src/keyboardmanager.cpp
+        include/keyboardlistener.h
+        src/keyboardlistener.cpp
 )

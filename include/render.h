@@ -1,7 +1,7 @@
 #ifndef RENDER_H
 #define RENDER_H
 
-#include "../include/snakegame.h"
+#include "../include/snakeGame.h"
 
 /**
  *  Forward declaration of the SnakeGame class.
@@ -26,7 +26,7 @@ class Render {
         void render() const;
 
     private:
-        SnakeGame& snakeGame; /** Reference to the SnakeGame instance for accessing game state */
+        SnakeGame& snakeGame; /** Reference to the SnakeGame instance for accessing game state. */
 };
 
 #endif

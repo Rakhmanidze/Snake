@@ -1,7 +1,7 @@
 #ifndef SNAKE_H
 #define SNAKE_H
 
-#include "../include/gamedata.h"
+#include "../include/gameData.h"
 #include <vector>
 #include "coordinate.h"
 
@@ -51,9 +51,9 @@ class Snake {
         void setDirection(int newDirection);
 
     private:
-        bool alive; /** Indicates whether the snake is alive */
-        int score; /** The current score of the snake */
-        std::vector<Coordinate> snake; /** The body segments of the snake */
+        bool alive; /** Indicates whether the snake is alive. */
+        int score; /** The current score of the snake. */
+        std::vector<Coordinate> snake; /** The body segments of the snake. */
         int currentDirection; /** The current direction for the snake. */
 
         /**

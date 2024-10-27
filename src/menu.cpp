@@ -1,6 +1,6 @@
 #include "../include/menu.h"
-#include "../include/snakegame.h"
-#include "../include/clearscreen.h"
+#include "../include/snakeGame.h"
+#include "../include/clearScreen.h"
 #include <iostream>
 #include <ostream>
 

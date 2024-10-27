@@ -4,7 +4,7 @@
 #include <cstdlib>
 
 /**
- * Function to clear the terminal screen using system command
+ * Function to clear the terminal screen using system command.
  */
 void clearScreen();
 

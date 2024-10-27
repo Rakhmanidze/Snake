@@ -1,4 +1,4 @@
-#include "../include/snakegame.h"
+#include "../include/snakeGame.h"
 
 int main() {
     SnakeGame snake;

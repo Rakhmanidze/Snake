@@ -3,8 +3,8 @@
 
 #include "food.h"
 #include "snake.h"
-#include "../include/gamedata.h"
-#include "../include/snakegame.h"
+#include "../include/gameData.h"
+#include "../include/snakeGame.h"
 
 /**
  *  Forward declaration of the SnakeGame class.
@@ -51,15 +51,15 @@ class Playing {
         bool isRunning();
 
     private:
-        SnakeGame& snakeGame; /** Reference to the SnakeGame instance for managing game state */
+        SnakeGame& snakeGame; /** Reference to the SnakeGame instance for managing game state. */
         int mapWitdth = GameData::MapDimensions::WIDTH;
         int mapHeight = GameData::MapDimensions::HEIGHT;
-        int map[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH]; /** 2D array representing the game map */
-        Snake snake; /** The current snake object in the game */
-        std::vector<Food> foods; /** List of food items currently on the map */
-        bool running = true; /** Indicates if the game is currently running */
-        bool printFinishMessageOnce = false; /** Flag to ensure the game-over message is printed only once */
-        bool gameover = false; /** Indicates whether the game is over */
+        int map[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH]; /** 2D array representing the game map. */
+        Snake snake; /** The current snake object in the game. */
+        std::vector<Food> foods; /** List of food items currently on the map. */
+        bool running = true; /** Indicates if the game is currently running. */
+        bool printFinishMessageOnce = false; /** Flag to ensure the game-over message is printed only once. */
+        bool gameover = false; /** Indicates whether the game is over. */
 
         /**
          * Spawns a specified number of food items on the map, ensuring they do not overlap with the snake's body.
