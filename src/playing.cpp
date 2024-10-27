@@ -62,7 +62,7 @@ void Playing::update() {
         running = false;
         gameover = true;
         std::this_thread::sleep_for(std::chrono::seconds(5));
-        snakeGame.setCurrentState(GameState::Menu);
+        snakeGame.setCurrentGameState(GameState::Menu);
     }
     updateSnakePosition();
     for (auto food = foods.begin(); food != foods.end(); ) {
@@ -77,7 +77,7 @@ void Playing::update() {
         running = false;
         gameover = false;
         std::this_thread::sleep_for(std::chrono::seconds(5));
-        snakeGame.setCurrentState(GameState::Menu);
+        snakeGame.setCurrentGameState(GameState::Menu);
     }
     if (!running)
         reset();

@@ -4,7 +4,7 @@
 Update::Update(SnakeGame &snakeGame) : snakeGame(snakeGame) {}
 
 void Update::update() const {
-    if (gameState == GameState::Playing) {
+    if (snakeGame.getCurrentGameState() == GameState::Playing) {
         snakeGame.getPlaying()->update();
     }
 }

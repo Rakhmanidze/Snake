@@ -18,7 +18,7 @@ KeyboardManager::KeyboardManager(SnakeGame &game) :  snakeGame(game) {
 
 void KeyboardManager::update() {
 #ifdef _WIN32
-    if (gameState ==  GameState::Playing) {
+    if (snakeGame.getCurrentGameState() ==  GameState::Playing) {
         if (_kbhit()) {
             int ch = _getch();
             if (ch == 72)
@@ -30,23 +30,23 @@ void KeyboardManager::update() {
             else if (ch == 77)
                 lastInputDirection = GameData::Direction::RIGHT;
         }
-    } else if (gameState == GameState::Menu) {
+    } else if (snakeGame.getCurrentGameState() == GameState::Menu) {
         if (_kbhit()) {
             int ch = _getch();
             if (ch == '1') {
                 snakeGame.getPlaying()->reset();
-                gameState = GameState::Playing;
+                snakeGame.setCurrentGameState(GameState::Playing);
                 snakeGame.getMenu()->setMenuDisplayed(false);
             } else if (ch == '2') {
                 snakeGame.getMenu()->setIntructions(true);
                 snakeGame.getMenu()->setMenuDisplayed(false);
             } else if (ch == '3')
-                gameState = GameState::Exit;
+                snakeGame.setCurrentGameState(GameState::Exit);
         }
     }
 
 #elif defined(__linux__) || defined(__APPLE__)
-    if (gameState == GameState::Playing) {
+    if (snakeGame.getCurrentGameState() == GameState::Playing) {
         int ch = getch();
         if (ch == KEY_UP)
             lastInputDirection = GameData::Direction::UP;
@@ -56,17 +56,17 @@ void KeyboardManager::update() {
             lastInputDirection = GameData::Direction::LEFT;
         else if (ch == KEY_RIGHT)
             lastInputDirection = GameData::Direction::RIGHT;
-    } else if (gameState == GameState::Menu) {
+    } else if (snakeGame.getCurrentGameState() == GameState::Menu) {
         int ch = getch();
         if (ch == '1') {
             snakeGame.getPlaying()->reset();
-            gameState = GameState::Playing;
+            snakeGame.setCurrentGameState(GameState::Playing);
             snakeGame.getMenu()->setMenuDisplayed(false);
         } else if (ch == '2') {
             snakeGame.getMenu()->setIntructions(true);
             snakeGame.getMenu()->setMenuDisplayed(false);
         } else if (ch == '3') {
-            gameState = GameState::Exit;
+            snakeGame.setCurrentGameState(GameState::Exit);
         }
     }
 #endif

@@ -41,9 +41,15 @@ class SnakeGame {
 
         /**
          * Sets the current game state to the specified state.
-         * @param state The new state of the game (Menu, Playing, Exit).
+         * @param newGameState The new state of the game (Menu, Playing, Exit).
          */
-        static void setCurrentState(GameState state);
+        void setCurrentGameState(GameState newGameState);
+
+        /**
+         * Retrieves the current game state.
+         * @return The current state of the game (Menu, Playing, Exit).
+         */
+        GameState getCurrentGameState() const;
 
         /**
          * Retrieves the menu object for the game.
@@ -69,6 +75,7 @@ class SnakeGame {
         Render* render;                   /** Pointer to the render object */
         Update* update;                   /** Pointer to the update object */
         KeyboardManager* keyboardManager; /** Pointer to the keyboard manager object */
+        GameState currentGameState = GameState::Menu;
 };
 
 #endif

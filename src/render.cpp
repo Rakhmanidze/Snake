@@ -4,8 +4,8 @@
 Render::Render(SnakeGame &snakeGame) : snakeGame(snakeGame) {}
 
 void Render::render() const {
-    if (gameState == GameState::Menu)
+    if (snakeGame.getCurrentGameState() == GameState::Menu)
         snakeGame.getMenu()->display();
-    else if (gameState == GameState::Playing)
+    else if (snakeGame.getCurrentGameState() == GameState::Playing)
         snakeGame.getPlaying()->display();
 }

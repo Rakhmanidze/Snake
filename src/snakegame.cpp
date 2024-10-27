@@ -5,24 +5,22 @@
 #include "../include/update.h"
 #include <thread>
 
-GameState gameState = GameState::Menu;
-
 void SnakeGame::updateLoop() {
-    while (gameState != GameState::Exit && getPlaying()->isRunning()) {
+    while (currentGameState != GameState::Exit && getPlaying()->isRunning()) {
         update->update();
         std::this_thread::sleep_for(std::chrono::milliseconds(150));
     }
 }
 
 void SnakeGame::renderLoop() {
-     while (gameState != GameState::Exit) {
+     while (currentGameState != GameState::Exit) {
          render->render();
          std::this_thread::sleep_for(std::chrono::milliseconds(150));
      }
 }
 
 void SnakeGame::inputLoop() {
-    while (gameState != GameState::Exit) {
+    while (currentGameState != GameState::Exit) {
         getKeyboardManager()->update();
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
@@ -50,8 +48,12 @@ void SnakeGame::run() {
     delete keyboardManager;
 }
 
-void SnakeGame::setCurrentState(GameState state) {
-    gameState = state;
+void SnakeGame::setCurrentGameState(GameState newGameState) {
+    currentGameState = newGameState;
+}
+
+GameState SnakeGame::getCurrentGameState() const {
+    return currentGameState;
 }
 
 Menu* SnakeGame::getMenu() const {
