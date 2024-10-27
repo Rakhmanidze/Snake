@@ -11,8 +11,8 @@ class GameData {
          */
         class MapDimensions {
             public:
-                static const int WIDTH = 55;
-                static const int HEIGHT = 25;
+                static constexpr int WIDTH = 55;
+                static constexpr int HEIGHT = 25;
         };
 
         /**
@@ -20,10 +20,10 @@ class GameData {
          */
         class MapTileType {
             public:
-                static const int EMPTY_SPACE = 0;
-                static const int WALL = 1;
-                static const int FOOD = 2;
-                static const int SNAKE = 3;
+                static constexpr int EMPTY_SPACE = 0;
+                static constexpr int WALL = 1;
+                static constexpr int FOOD = 2;
+                static constexpr int SNAKE = 3;
         };
 
         /**
@@ -31,7 +31,18 @@ class GameData {
          */
         class Score {
             public:
-                static const int MAX_SCORE = 5;
+                static constexpr int MAX_SCORE = 5;
+        };
+
+        /**
+         * Class that snake's direction constants.
+         */
+        class Direction {
+        public:
+            static constexpr int RIGHT = 0;
+            static constexpr int LEFT = 1;
+            static constexpr int DOWN = 2;
+            static constexpr int UP = 3;
         };
 };
 

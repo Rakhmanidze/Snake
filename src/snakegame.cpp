@@ -3,11 +3,9 @@
 #include "../include/playing.h"
 #include "../include/render.h"
 #include "../include/update.h"
-#include "../include/direction.h"
 #include <thread>
 
 GameState gameState = GameState::Menu;
-Direction direction = Direction::RIGHT;
 
 void SnakeGame::updateLoop() {
     while (gameState != GameState::Exit && getPlaying()->isRunning()) {

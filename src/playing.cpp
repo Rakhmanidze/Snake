@@ -12,7 +12,7 @@ Playing::Playing(SnakeGame &game) : snakeGame(game) {
 
 void Playing::reset() {
     snake = Snake();
-    direction = Direction::RIGHT;
+    snakeGame.getKeyboardManager()->setLastInputDirection(GameData::Direction::RIGHT);
     initializeMap();
     running = true;
     printFinishMessageOnce = false;
@@ -56,6 +56,7 @@ void Playing::spawnMultipleFoods(int count) {
 }
 
 void Playing::update() {
+    snake.setDirection(snakeGame.getKeyboardManager()->getLastInputDirection());
     removeSnakeFromMap();
     if (snake.update()) {
         running = false;

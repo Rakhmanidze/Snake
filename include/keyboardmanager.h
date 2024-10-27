@@ -1,7 +1,6 @@
 #ifndef KEYBOARDMANAGER_H
 #define KEYBOARDMANAGER_H
 
-#include "direction.h"
 #include "../include/snakegame.h"
 
 /**
@@ -24,7 +23,13 @@ class KeyboardManager {
          * Sets a new direction for the snake.
          * @param newDirection The new direction to set.
          */
-        void setDirection(Direction newDirection);
+        void setLastInputDirection(int newDirection);
+
+        /**
+         * Retrieves the last score of the snake.
+         * @return The current score as an integer.
+         */
+        int getLastInputDirection();
 
         /**
          * Updates the keyboard state, handling any input.
@@ -33,6 +38,7 @@ class KeyboardManager {
 
     private:
         SnakeGame& snakeGame; /** Reference to the SnakeGame instance */
+        int lastInputDirection; /** The last input direction for the snake. */
 };
 
 #endif

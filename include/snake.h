@@ -44,10 +44,17 @@ class Snake {
          */
         int getScore() const;
 
+        /**
+         * Sets a new direction for the snake.
+         * @param newDirection The new direction to set.
+         */
+        void setDirection(int newDirection);
+
     private:
         bool alive; /** Indicates whether the snake is alive */
         int score; /** The current score of the snake */
         std::vector<Coordinate> snake; /** The body segments of the snake */
+        int currentDirection; /** The current direction for the snake. */
 
         /**
          * Initializes the snake's starting position and size.

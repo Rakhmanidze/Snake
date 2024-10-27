@@ -22,7 +22,6 @@ add_executable(semak_cpp src/main.cpp
         include/coordinate.h
         include/food.h
         src/food.cpp
-        include/direction.h
         include/clearscreen.h
         src/clearscreen.cpp
         include/keyboardmanager.h

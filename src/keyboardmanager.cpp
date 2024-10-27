@@ -22,13 +22,13 @@ void KeyboardManager::update() {
         if (_kbhit()) {
             int ch = _getch();
             if (ch == 72)
-                setDirection(Direction::UP);
+                lastInputDirection = GameData::Direction::UP;
             else if (ch == 80)
-                setDirection(Direction::DOWN);
+                lastInputDirection = GameData::Direction::DOWN;
             else if (ch == 75)
-               setDirection(Direction::LEFT);
+                lastInputDirection = GameData::Direction::LEFT;
             else if (ch == 77)
-                setDirection(Direction::RIGHT);
+                lastInputDirection = GameData::Direction::RIGHT;
         }
     } else if (gameState == GameState::Menu) {
         if (_kbhit()) {
@@ -49,13 +49,13 @@ void KeyboardManager::update() {
     if (gameState == GameState::Playing) {
         int ch = getch();
         if (ch == KEY_UP)
-            setDirection(Direction::UP);
+            lastInputDirection = GameData::Direction::UP;
         else if (ch == KEY_DOWN)
-            setDirection(Direction::DOWN);
+            lastInputDirection = GameData::Direction::DOWN;
         else if (ch == KEY_LEFT)
-            setDirection(Direction::LEFT);
+            lastInputDirection = GameData::Direction::LEFT;
         else if (ch == KEY_RIGHT)
-            setDirection(Direction::RIGHT);
+            lastInputDirection = GameData::Direction::RIGHT;
     } else if (gameState == GameState::Menu) {
         int ch = getch();
         if (ch == '1') {
@@ -72,12 +72,10 @@ void KeyboardManager::update() {
 #endif
 }
 
-void KeyboardManager::setDirection(Direction newDirection) {
-    if ((newDirection == Direction::LEFT && direction == Direction::RIGHT) ||
-      (newDirection == Direction::RIGHT && direction == Direction::LEFT) ||
-      (newDirection == Direction::UP && direction == Direction::DOWN) ||
-      (newDirection == Direction::DOWN && direction == Direction::UP)) {
-        return;
-      }
-    direction = newDirection;
+int KeyboardManager::getLastInputDirection() {
+    return lastInputDirection;
+}
+
+void KeyboardManager::setLastInputDirection(int newDirection) {
+    lastInputDirection = newDirection;
 }

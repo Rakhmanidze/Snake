@@ -1,5 +1,4 @@
 #include "../include/snake.h"
-#include "../include/direction.h"
 
 Snake::Snake() : alive(true), score(0) {
     createSnake();
@@ -21,13 +20,13 @@ int Snake::move() {
 
     int newX = snake[0].x;
     int newY = snake[0].y;
-    if (direction == Direction::RIGHT)
+    if (currentDirection == GameData::Direction::RIGHT)
         newX += 1;
-    else if (direction == Direction::LEFT)
+    else if (currentDirection == GameData::Direction::LEFT)
         newX -= 1;
-    else if (direction == Direction::UP)
+    else if (currentDirection ==  GameData::Direction::UP)
         newY -= 1;
-    else if (direction == Direction::DOWN)
+    else if (currentDirection == GameData::Direction::DOWN)
         newY += 1;
 
     if (newX < 1 || newX >= GameData::MapDimensions::WIDTH || newY < 1 || newY >= GameData::MapDimensions::HEIGHT) {
@@ -52,13 +51,13 @@ void Snake::grow() {
     Coordinate tail = snake.back();
     Coordinate newTail = tail;
 
-    if (direction == Direction::UP)
+    if (currentDirection ==  GameData::Direction::UP)
         newTail.y += 1;
-    else if (direction == Direction::DOWN)
+    else if (currentDirection == GameData::Direction::DOWN)
         newTail.y -= 1;
-    else if (direction == Direction::LEFT)
+    else if (currentDirection ==GameData::Direction::LEFT)
         newTail.x += 1;
-    else if (direction == Direction::RIGHT)
+    else if (currentDirection ==  GameData::Direction::RIGHT)
         newTail.x -= 1;
 
     for (size_t i = 0; i < snake.size(); i++) {
@@ -78,6 +77,16 @@ void Snake::eat() {
 
 void Snake::die() {
     alive = false;
+}
+
+void Snake::setDirection(int newDirection) {
+    if ((newDirection == GameData::Direction::LEFT && currentDirection == GameData::Direction::RIGHT) ||
+     (newDirection == GameData::Direction::RIGHT && currentDirection == GameData::Direction::LEFT) ||
+     (newDirection == GameData::Direction::UP && currentDirection == GameData::Direction::DOWN) ||
+     (newDirection == GameData::Direction::DOWN && currentDirection == GameData::Direction::UP)) {
+        return;
+     }
+    currentDirection = newDirection;
 }
 
 std::vector<Coordinate> Snake::getBody() const {
