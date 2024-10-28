@@ -17,6 +17,7 @@ void displayHelp() {
     std::cout << "\n";
     std::cout << "Menu Options:\n";
     std::cout << "1. Start Game - Press '1' to start playing.\n";
+    std::cout << "2. Instructions - Press '2' to view game instructions.\n";
     std::cout << "2. Exit Game - Press '2' to exit the game.\n";
     std::cout << "\n";
 }
