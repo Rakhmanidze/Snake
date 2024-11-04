@@ -28,9 +28,20 @@ TEST_CASE("Snake initialization and death check") {
     REQUIRE(snake.isAlive() == false);
 }
 
+/**
+ * Test case to verify the movement of the Snake object.
+ * This checks if the snake moves in the specified direction and updates
+ * its body segments accordingly. It verifies that the snake
+ * correctly dies upon hitting a wall, ensuring that the game logic
+ * for boundaries is functioning as intended and checks
+ * the current direction before movement.
+ */
 TEST_CASE("Snake movement check") {
     Snake snake;
     snake.setDirection(GameData::Direction::RIGHT);
+
+    REQUIRE(snake.getCurrentDirection() == GameData::Direction::RIGHT);
+
     snake.update();
     auto body = snake.getBody();
     REQUIRE(body[0].x == 6);
@@ -47,4 +58,28 @@ TEST_CASE("Snake movement check") {
         snake.update();
 
     REQUIRE(snake.isAlive() == false);
+}
+
+/**
+ * Test case to verify that the Snake object grows correctly
+ * when the eat() method is called. It checks the size of the snake's body
+ * and the positions of the segments after eating.
+ */
+TEST_CASE("Snake grows check") {
+    Snake snake;
+    snake.setDirection(GameData::Direction::RIGHT);
+    snake.update();
+
+    snake.eat();
+    auto body = snake.getBody();
+
+    REQUIRE(body.size() == 4);
+    REQUIRE(body[0].x == 6);
+    REQUIRE(body[0].y == GameData::MapDimensions::HEIGHT / 2);
+    REQUIRE(body[1].x == 5);
+    REQUIRE(body[1].y == GameData::MapDimensions::HEIGHT / 2);
+    REQUIRE(body[2].x == 4);
+    REQUIRE(body[2].y == GameData::MapDimensions::HEIGHT / 2);
+    REQUIRE(body[3].x == 3);
+    REQUIRE(body[3].y == GameData::MapDimensions::HEIGHT / 2);
 }

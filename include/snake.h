@@ -61,6 +61,12 @@ class Snake {
          */
         bool isAlive() const;
 
+        /**
+         * Retrieves the current direction of the snake.
+         * @return The current direction as an integer.
+         */
+        int getCurrentDirection() const;
+
     private:
         bool alive; /** Indicates whether the snake is alive. */
         int score; /** The current score of the snake. */

@@ -100,3 +100,7 @@ int Snake::getScore() const {
 bool Snake::isAlive() const {
     return alive;
 }
+
+int Snake::getCurrentDirection() const {
+    return currentDirection;
+}
