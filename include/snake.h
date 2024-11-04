@@ -39,6 +39,11 @@ class Snake {
         void eat();
 
         /**
+          * Marks the snake as dead, ending the game for this snake.
+          */
+        void die();
+
+        /**
          * Retrieves the current score of the snake.
          * @return The current score as an integer.
          */
@@ -49,6 +54,12 @@ class Snake {
          * @param newDirection The new direction to set.
          */
         void setDirection(int newDirection);
+
+        /**
+         * Checks if the snake is currently alive.
+         * @return true if the snake is alive; false otherwise.
+         */
+        bool isAlive() const;
 
     private:
         bool alive; /** Indicates whether the snake is alive. */
@@ -71,11 +82,6 @@ class Snake {
          * Increases the size of the snake by adding a new segment to its body.
          */
         void grow();
-
-        /**
-         * Marks the snake as dead, ending the game for this snake.
-         */
-        void die();
 };
 
 #endif

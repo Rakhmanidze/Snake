@@ -3,6 +3,14 @@ project(semak_cpp)
 
 set(CMAKE_CXX_STANDARD 20)
 
+include(FetchContent)
+FetchContent_Declare(
+        Catch2
+        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+        GIT_TAG        v3.4.0
+)
+FetchContent_MakeAvailable(Catch2)
+
 add_executable(semak_cpp src/main.cpp
         src/menu.cpp
         include/menu.h
@@ -26,4 +34,17 @@ add_executable(semak_cpp src/main.cpp
         src/clearscreen.cpp
         include/keyboardlistener.h
         src/keyboardlistener.cpp
+        tests/testSnake.cpp
+        tests/testsMain.cpp
 )
+
+add_executable(semak_tests
+        tests/testSnake.cpp
+        src/snake.cpp
+)
+target_link_libraries(semak_tests PRIVATE Catch2::Catch2WithMain)
+
+enable_testing()
+add_test(NAME semak_tests COMMAND semak_tests)
+
+

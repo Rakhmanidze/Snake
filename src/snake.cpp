@@ -96,3 +96,7 @@ std::vector<Coordinate> Snake::getBody() const {
 int Snake::getScore() const {
     return score;
 }
+
+bool Snake::isAlive() const {
+    return alive;
+}
