@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
             return 0;
         }
     }
-    SnakeGame snake;
-    snake.run();
+    SnakeGame snakeGame;
+    snakeGame.run();
     return 0;
 }

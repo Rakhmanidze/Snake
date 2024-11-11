@@ -34,17 +34,31 @@ add_executable(semak_cpp src/main.cpp
         src/clearscreen.cpp
         include/keyboardlistener.h
         src/keyboardlistener.cpp
-        tests/testSnake.cpp
-        tests/testsMain.cpp
 )
 
-add_executable(semak_tests
-        tests/testSnake.cpp
+add_executable(tests_snake
+        tests/testsMain.cpp
+        tests/testsSnake.cpp
         src/snake.cpp
 )
-target_link_libraries(semak_tests PRIVATE Catch2::Catch2WithMain)
+
+add_executable(tests_playing
+        tests/testsMain.cpp
+        tests/testsPlaying.cpp
+        src/playing.cpp
+        src/food.cpp
+        src/snake.cpp
+        src/clearScreen.cpp
+        src/snakeGame.cpp
+        src/keyboardListener.cpp
+        src/update.cpp
+        src/render.cpp
+        src/menu.cpp
+)
+
+target_link_libraries(tests_snake PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(tests_playing PRIVATE Catch2::Catch2WithMain)
 
 enable_testing()
-add_test(NAME semak_tests COMMAND semak_tests)
-
-
+add_test(NAME tests_snake COMMAND tests_snake)
+add_test(NAME tests_playing COMMAND tests_playing)

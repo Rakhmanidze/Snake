@@ -40,6 +40,18 @@ class Playing {
         Snake getSnake();
 
         /**
+         * Retrieves the current list of food items on the map.
+         * @return The current list of food items on the map.
+         */
+        std::vector<Food> getFoods();
+
+        /**
+         * Retrieves the current game map.
+         * @return 2D array representing the game map.
+         */
+        const int(&getMap() const)[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH];
+
+        /**
          * Resets the game state to the initial conditions.
          */
         void reset();

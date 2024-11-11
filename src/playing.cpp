@@ -139,6 +139,14 @@ Snake Playing::getSnake() {
     return snake;
 }
 
+std::vector<Food> Playing::getFoods() {
+    return foods;
+}
+
+const int (&Playing::getMap() const)[GameData::MapDimensions::HEIGHT][GameData::MapDimensions::WIDTH] {
+    return map;
+}
+
 bool Playing::isRunning() {
     return running;
 }

@@ -4,10 +4,10 @@
 /**
  * Test case to verify the Snake object's initialization, including the initial score,
  * alive status, body size, and positions of the segments. It also checks the eat() method
- * to verify the score increments when the snake eats and the state
+ * to verify the score increments when the snake eats and then the state
  * after calling the die() method to ensure the snake is no longer alive.
  */
-TEST_CASE("Snake initialization and death check") {
+TEST_CASE ("Snake initialization and death check") {
     Snake snake;
     REQUIRE(snake.getScore() == 0);
     REQUIRE(snake.isAlive() == true);
@@ -33,8 +33,7 @@ TEST_CASE("Snake initialization and death check") {
  * This checks if the snake moves in the specified direction and updates
  * its body segments accordingly. It verifies that the snake
  * correctly dies upon hitting a wall, ensuring that the game logic
- * for boundaries is functioning as intended and checks
- * the current direction before movement.
+ * for boundaries is functioning as intended.
  */
 TEST_CASE("Snake movement check") {
     Snake snake;
