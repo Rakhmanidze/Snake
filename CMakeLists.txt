@@ -56,9 +56,25 @@ add_executable(tests_playing
         src/menu.cpp
 )
 
+add_executable(test_food
+        tests/testsMain.cpp
+        tests/testFood.cpp
+        src/snake.cpp
+        src/food.cpp
+        src/playing.cpp
+        src/clearScreen.cpp
+        src/snakeGame.cpp
+        src/keyboardListener.cpp
+        src/update.cpp
+        src/render.cpp
+        src/menu.cpp
+)
+
 target_link_libraries(tests_snake PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(tests_playing PRIVATE Catch2::Catch2WithMain)
+target_link_libraries(test_food PRIVATE Catch2::Catch2WithMain)
 
 enable_testing()
 add_test(NAME tests_snake COMMAND tests_snake)
 add_test(NAME tests_playing COMMAND tests_playing)
+add_test(NAME test_food COMMAND tests_playing)
