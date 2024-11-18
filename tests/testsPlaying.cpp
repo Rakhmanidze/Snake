@@ -2,6 +2,31 @@
 #include "../include/playing.h"
 
 /**
+ * Test case to verify that the game correctly resets after a game over.
+ * This test checks:
+ *  - The game is running after the reset.
+ *  - The snake is alive after the reset.
+ *  - The snake's score is reset to 0.
+ *  - The walls are correctly placed after the reset.
+ *  - The number of food items is reset to 20 after the reset.
+ */
+TEST_CASE("Game Reset After Game Over") {
+    SnakeGame snakeGame;
+    Playing playing(snakeGame);
+
+    playing.reset();
+    REQUIRE(playing.isRunning() == true);
+    REQUIRE(playing.getSnake().isAlive() == true);
+    REQUIRE(playing.getSnake().getScore() == 0);
+
+    const auto& map = playing.getMap();
+    REQUIRE(map[0][0] == GameData::MapTileType::WALL);
+    REQUIRE(map[GameData::MapDimensions::HEIGHT - 1][GameData::MapDimensions::WIDTH - 1] == GameData::MapTileType::WALL);
+
+    REQUIRE(playing.getFoods().size() == 20);
+}
+
+/**
  * Test case to verify the initial setup of the Playing class.
  * This test checks:
  *  - Correct placement of walls around the map's borders (top, bottom, left, and right).
@@ -32,29 +57,4 @@ TEST_CASE("Initial Setup Verification in the Playing Class") {
         REQUIRE(map[foodPos.y][foodPos.x] != GameData::MapTileType::SNAKE);
         REQUIRE(map[foodPos.y][foodPos.x] != GameData::MapTileType::WALL);
     }
-}
-
-/**
- * Test case to verify that the game correctly resets after a game over.
- * This test checks:
- *  - The game is running after the reset.
- *  - The snake is alive after the reset.
- *  - The snake's score is reset to 0.
- *  - The walls are correctly placed after the reset.
- *  - The number of food items is reset to 20 after the reset.
- */
-TEST_CASE("Game Reset After Game Over") {
-    SnakeGame snakeGame;
-    Playing playing(snakeGame);
-
-    playing.reset();
-    REQUIRE(playing.isRunning() == true);
-    REQUIRE(playing.getSnake().isAlive() == true);
-    REQUIRE(playing.getSnake().getScore() == 0);
-
-    const auto& map = playing.getMap();
-    REQUIRE(map[0][0] == GameData::MapTileType::WALL);
-    REQUIRE(map[GameData::MapDimensions::HEIGHT - 1][GameData::MapDimensions::WIDTH - 1] == GameData::MapTileType::WALL);  // Check bottom-right corner for a wall
-
-    REQUIRE(playing.getFoods().size() == 20);
 }
