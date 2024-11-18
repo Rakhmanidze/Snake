@@ -35,8 +35,8 @@ add_library(semak_lib
         include/keyboardlistener.h
 )
 
-add_executable(semak_cpp src/main.cpp)
-target_link_libraries(semak_cpp PRIVATE semak_lib)
+add_executable(snake_game src/main.cpp)
+target_link_libraries(snake_game PRIVATE semak_lib)
 
 add_executable(tests_snake
         tests/testsMain.cpp
